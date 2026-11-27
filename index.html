@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[크루명 입력 예정] 신규 러닝 멤버 모집</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        volt: {
+                            400: '#D4FF00',
+                            500: '#BEE600',
+                        },
+                        obsidian: {
+                            800: '#161B26',
+                            900: '#0F131A',
+                            950: '#090B10',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0F131A;
+            color: #F8FAFC;
+        }
+        /* 추후 세부 정보 수정이 필요한 항목을 표시하는 점선 하이라이트 스타일 */
+        .placeholder-tag {
+            display: inline-block;
+            border: 1.5px dashed rgba(212, 255, 0, 0.55);
+            background-color: rgba(212, 255, 0, 0.08);
+            color: #D4FF00;
+            padding: 0.1rem 0.55rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-volt-400 selection:text-obsidian-950">
+
+    <!-- 상단 상태 배너 -->
+    <div class="bg-volt-400 text-obsidian-950 px-4 py-2.5 text-center text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 sticky top-0 z-50 shadow-md">
+        <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i>
+        <span><strong>신규 멤버 모집 중!</strong> 모든 지원 버튼이 구글폼 신청서와 연결되어 있습니다.</span>
+    </div>
+
+    <!-- 네비게이션 바 -->
+    <header class="border-b border-white/10 bg-obsidian-900/85 backdrop-blur-md sticky top-[36px] sm:top-[40px] z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- 크루 로고 / 이름 -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-volt-400 text-obsidian-950 flex items-center justify-center font-black text-lg tracking-tighter group-hover:scale-105 transition-transform">
+                    RUN
+                </div>
+                <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white">
+                    [크루명 입력 예정]
+                </span>
+            </a>
+
+            <!-- 네비게이션 메뉴 & 구글폼 CTA 버튼 -->
+            <div class="flex items-center gap-4 sm:gap-6">
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                    <a href="#intro" class="hover:text-volt-400 transition-colors">페이스 그룹</a>
+                    <a href="#details" class="hover:text-volt-400 transition-colors">모집 안내</a>
+                    <a href="#apply-form" class="hover:text-volt-400 transition-colors">신청서 작성</a>
+                    <a href="#faq" class="hover:text-volt-400 transition-colors">FAQ</a>
+                </nav>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform" target="_blank" rel="noopener noreferrer" class="bg-volt-400 hover:bg-volt-500 text-obsidian-950 font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-lg shadow-volt-400/20 active:scale-95 flex items-center gap-1.5">
+                    <span>지원하기</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. 히어로 섹션 (Hero Section) -->
+    <section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28 px-4 sm:px-6">
+        <!-- 배경 글로우 장식 -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[520px] h-[300px] bg-volt-400/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <!-- 모집 배지 -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-volt-400 text-xs sm:text-sm font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-volt-400 animate-pulse"></span>
+                <span>NEW CREW RECRUITMENT · 신규 러너 모집</span>
+            </div>
+
+            <!-- 메인 헤드라인 -->
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.18] mb-6">
+                혼자 뛰면 기록이 남고,<br>
+                <span class="text-volt-400">함께 뛰면 추억이 남습니다.</span>
+            </h1>
+
+            <!-- 서브 헤드라인 -->
+            <p class="text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                초보 러너부터 대회 완주를 목표로 하는 러너까지 누구나 환영합니다.<br class="hidden sm:block">
+                <span class="placeholder-tag">[활동 지역 입력 예정]</span>에서 우리와 함께 달릴 새로운 멤버를 기다립니다!
+            </p>
+
+            <!-- 메인 CTA 버튼 그룹 -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-volt-400 hover:bg-volt-500 text-obsidian-950 font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl transition-all shadow-xl shadow-volt-400/20 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    <span>구글폼으로 신청서 작성하기</span>
+                </a>
+                <a href="#apply-form" class="w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-2xl transition-all flex items-center justify-center gap-2">
+                    <span>페이지에서 바로 작성하기</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 크루 소개 & 페이스별 조 편성 안내 -->
+    <section id="intro" class="py-16 sm:py-24 px-4 sm:px-6 bg-obsidian-950/60 border-y border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-volt-400 font-bold text-sm tracking-wider uppercase">PACE & RUNNING STYLE</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2">
+                    나에게 딱 맞는 페이스 그룹으로 함께 달립니다
+                </h2>
+                <p class="text-slate-400 mt-3 text-sm sm:text-base">
+                    구글폼에서 선택하신 러닝 경력과 평균 페이스를 바탕으로 맞춤형 러닝 그룹을 편성합니다.
+                </p>
+            </div>
+
+            <!-- 4단 페이스 그룹 그리드 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                <!-- 입문/슬로우 그룹 -->
+                <div class="bg-obsidian-800/80 border border-white/10 rounded-3xl p-6 hover:border-volt-400/40 transition-colors">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-volt-400/15 text-volt-400 text-xs font-bold mb-4">
+                        <i data-lucide="footprints" class="w-3.5 h-3.5"></i>
+                        <span>입문 · 조깅 그룹</span>
+                    </div>
+                    <div class="text-2xl font-black text-white mb-1">7'00"+ <span class="text-xs font-normal text-slate-400">/km</span></div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2">
+                        이제 막 달리기를 시작한 분들을 위한 그룹! 대화가 가능한 편안한 속도로 완주 습관을 만듭니다.
+                    </p>
+                </div>
+
+                <!-- 초·중급 그룹 -->
+                <div class="bg-obsidian-800/80 border border-white/10 rounded-3xl p-6 hover:border-volt-400/40 transition-colors">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-volt-400/15 text-volt-400 text-xs font-bold mb-4">
+                        <i data-lucide="gauge" class="w-3.5 h-3.5"></i>
+                        <span>베이직 러너 그룹</span>
+                    </div>
+                    <div class="text-2xl font-black text-white mb-1">6'00" ~ 6'59" <span class="text-xs font-normal text-slate-400">/km</span></div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2">
+                        3~5km 이상 무난하게 달릴 수 있는 분들을 위한 가장 대중적인 조깅 페이스 그룹입니다.
+                    </p>
+                </div>
+
+                <!-- 중급 그룹 -->
+                <div class="bg-obsidian-800/80 border border-white/10 rounded-3xl p-6 hover:border-volt-400/40 transition-colors">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-volt-400/15 text-volt-400 text-xs font-bold mb-4">
+                        <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                        <span>템포 러너 그룹</span>
+                    </div>
+                    <div class="text-2xl font-black text-white mb-1">5'00" ~ 5'59" <span class="text-xs font-normal text-slate-400">/km</span></div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2">
+                        주 1~2회 이상 5~10km를 꾸준히 달리며 체력 증진과 기록 단축을 목표로 하는 그룹입니다.
+                    </p>
+                </div>
+
+                <!-- 상급 그룹 -->
+                <div class="bg-obsidian-800/80 border border-white/10 rounded-3xl p-6 hover:border-volt-400/40 transition-colors">
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-volt-400/15 text-volt-400 text-xs font-bold mb-4">
+                        <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                        <span>퍼포먼스 그룹</span>
+                    </div>
+                    <div class="text-2xl font-black text-white mb-1">4'59" 이하 <span class="text-xs font-normal text-slate-400">/km</span></div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mt-2">
+                        10km 이상 장거리 러닝과 마라톤 대회를 함께 준비하는 속도감 있는 러너 그룹입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3단 크루 핵심 문화 카드 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-obsidian-800/50 border border-white/10 rounded-3xl p-6 flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-2xl bg-volt-400/15 text-volt-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-1">유연한 정기 런 & 번개 런</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            평일 저녁(월·수 / 화·목 / 금)과 주말 오전·오후 중 선호 시간대를 반영해 정기 러닝을 운영합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-obsidian-800/50 border border-white/10 rounded-3xl p-6 flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-2xl bg-volt-400/15 text-volt-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="trophy" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-1">목표 달성과 대회 동반 출전</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            혼자서는 미루게 되는 러닝 습관 형성부터 10K·하프 마라톤 대회 참가까지 함께 준비합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-obsidian-800/50 border border-white/10 rounded-3xl p-6 flex items-start gap-4">
+                    <div class="w-11 h-11 rounded-2xl bg-volt-400/15 text-volt-400 flex items-center justify-center shrink-0">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-1">안전 중심 & 노쇼 방지 문화</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                            러닝 전후 스트레칭과 안전 수칙 준수를 최우선으로 하며, 서로 배려하는 약속 문화를 지킵니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 모집 상세 안내 (추후 세부 정보 수정 가능 영역) -->
+    <section id="details" class="py-16 sm:py-24 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-volt-400 font-bold text-sm tracking-wider uppercase">RECRUITMENT DETAILS</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2">
+                    모집 요강 및 활동 안내
+                </h2>
+                <p class="text-slate-400 mt-2 text-sm">
+                    아래 점선 표시 항목은 크루 운영진 확정 후 언제든 업데이트할 수 있습니다.
+                </p>
+            </div>
+
+            <div class="bg-obsidian-800 border border-white/10 rounded-3xl p-6 sm:p-10 shadow-xl">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                    <!-- 항목 1: 모집 기간 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 text-volt-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">모집 기간</div>
+                            <div class="text-base sm:text-lg font-bold text-white mt-1">
+                                <span class="placeholder-tag">[모집 시작일 ~ 마감일 입력]</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">선착순 또는 설문 확인 후 개별 연락 안내</p>
+                        </div>
+                    </div>
+
+                    <!-- 항목 2: 모집 인원 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 text-volt-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="user-plus" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">모집 대상 및 인원</div>
+                            <div class="text-base sm:text-lg font-bold text-white mt-1">
+                                <span class="placeholder-tag">[모집 인원 및 연령대 입력]</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">러닝을 사랑하고 규칙적으로 참여 가능한 분</p>
+                        </div>
+                    </div>
+
+                    <!-- 항목 3: 주 활동 지역 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 text-volt-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">주 활동 지역 / 집결지</div>
+                            <div class="text-base sm:text-lg font-bold text-white mt-1">
+                                <span class="placeholder-tag">[집결 장소 및 코스 입력]</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">짐 보관 및 접근성이 좋은 러닝 스팟 중심</p>
+                        </div>
+                    </div>
+
+                    <!-- 항목 4: 정기 러닝 일정 -->
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 text-volt-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">정기 러닝 일정</div>
+                            <div class="text-base sm:text-lg font-bold text-white mt-1">
+                                <span class="placeholder-tag">[요일 및 시간 입력 예정]</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">설문 내 희망 시간대(평일 저녁 / 주말 오전·오후) 반영</p>
+                        </div>
+                    </div>
+
+                    <!-- 항목 5: 회비 및 운영 안내 -->
+                    <div class="flex items-start gap-4 sm:col-span-2 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 text-volt-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="wallet" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">참가비 / 회비 및 참여 규정 안내</div>
+                            <div class="text-base sm:text-lg font-bold text-white mt-1">
+                                <span class="placeholder-tag">[없음 또는 월 회비/보증금 안내 입력]</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">원활한 운영과 노쇼(무단 불참) 방지를 위한 참여 규정 및 안전 수칙 동의가 필요합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 구글폼 설문 요약 및 바로가기 박스 -->
+                <div class="mt-8 bg-obsidian-900/90 border border-volt-400/30 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="clipboard-list" class="w-5 h-5 text-volt-400 shrink-0 mt-0.5"></i>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">구글폼 신청서 구성 안내 (약 1~2분 소요)</h4>
+                            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                                ① 기본 인적 사항(성함·연락처·출생연도/성별·거주지) · ② 러닝 경력 및 평균 페이스(4'~7'대) · ③ 참여 가능 요일 및 월 참여 횟수 · ④ 자기소개 및 안전/운영 규정 동의
+                            </p>
+                        </div>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto shrink-0 bg-volt-400 hover:bg-volt-500 text-obsidian-950 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all text-center inline-flex items-center justify-center gap-1.5">
+                        <span>구글폼 바로가기</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 페이지 내 구글폼 바로 작성하기 섹션 (Embedded Google Form) -->
+    <section id="apply-form" class="py-16 sm:py-24 px-4 sm:px-6 bg-obsidian-950/80 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                <div>
+                    <span class="text-volt-400 font-bold text-sm tracking-wider uppercase">APPLICATION FORM</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2">
+                        신규 러닝 멤버 신청서 작성
+                    </h2>
+                    <p class="text-slate-400 mt-2 text-sm sm:text-base">
+                        아래 양식을 페이지에서 바로 제출하시거나, 새 창에서 구글폼을 열어 작성해 주세요.
+                    </p>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-volt-400 hover:bg-volt-500 text-obsidian-950 font-bold text-sm px-5 py-3 rounded-xl transition-all inline-flex items-center justify-center gap-2 shadow-lg shadow-volt-400/15">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>새 창에서 구글폼 열기</span>
+                </a>
+            </div>
+
+            <!-- 구글폼 임베드 컨테이너 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-white/15">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform?embedded=true"
+                    class="w-full h-[950px] sm:h-[1050px] border-0"
+                    title="러닝 멤버 모집 구글폼 신청서"
+                    loading="lazy">
+                    구글폼을 불러오는 중입니다...
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 자주 묻는 질문 (FAQ Accordion) -->
+    <section id="faq" class="py-16 sm:py-24 px-4 sm:px-6 bg-obsidian-950/60 border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-volt-400 font-bold text-sm tracking-wider uppercase">FAQ</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">
+                    자주 묻는 질문
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-obsidian-800 border border-white/10 rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-volt-400 transition-colors">
+                        <span>Q. 달리기를 한 번도 제대로 해본 적이 없는 초보도 지원할 수 있나요?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-200 shrink-0"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        네, 물론입니다! 구글폼 신청서에서 <strong>'이제 막 시작했어요(입문)'</strong> 또는 <strong>'7분 00초 이상'</strong> 페이스를 선택해 주시면 초보자도 부담 없이 완주할 수 있는 입문 그룹으로 안내해 드립니다. 페이스를 잘 모르실 경우 첫 러닝 때 함께 맞춰보니 걱정하지 마세요!
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-obsidian-800 border border-white/10 rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-volt-400 transition-colors">
+                        <span>Q. 정기 러닝에 매주 꼭 참석해야 하나요?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-200 shrink-0"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        개인 일정에 맞춰 자유롭게 참여하실 수 있습니다. 다만 원활한 조 편성과 노쇼(무단 불참) 방지를 위해 사전에 공지되는 참석 투표 일정과 최소 참여 규정을 함께 지켜주시면 됩니다.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-obsidian-800 border border-white/10 rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" class="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-volt-400 transition-colors">
+                        <span>Q. 구글폼 지원 후 합격 안내는 언제, 어떻게 받나요?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform duration-200 shrink-0"></i>
+                    </button>
+                    <div class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                        작성해 주신 연락처(전화번호 또는 카카오톡 ID)를 확인한 뒤, 운영진이 순차적으로 개별 연락 및 크루 오픈채팅방 초대 링크를 안내해 드립니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 하단 최종 CTA 배너 -->
+    <section class="py-16 sm:py-24 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-gradient-to-br from-volt-400 to-volt-500 rounded-3xl p-8 sm:p-14 text-center text-obsidian-950 shadow-2xl shadow-volt-400/15 relative overflow-hidden">
+            <h2 class="text-2xl sm:text-4xl font-black tracking-tight mb-4">
+                망설임은 출발선까지만!
+            </h2>
+            <p class="text-obsidian-900 font-medium text-base sm:text-lg max-w-xl mx-auto mb-8">
+                지금 바로 회원모집 구글폼을 작성하고,<br class="hidden sm:block">
+                우리와 함께 새로운 러닝 라이프를 시작해 보세요.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScIDOB3UY9Kkv0DiC3QKCj-yNsw8sP0kpBFTzBXsboII0V0bA/viewform" target="_blank" rel="noopener noreferrer" class="bg-obsidian-950 hover:bg-obsidian-800 text-volt-400 font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl transition-all shadow-xl inline-flex items-center gap-2.5 active:scale-95">
+                <span>회원모집 구글폼 작성하기</span>
+                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="border-t border-white/10 py-10 px-4 sm:px-6 text-center text-xs sm:text-sm text-slate-500">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="font-bold text-slate-300">[크루명 입력 예정] Running Crew</div>
+            <div>문의: <span class="text-slate-400">[인스타그램 계정 또는 오픈채팅 링크 입력 예정]</span></div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide 아이콘 초기화
+        lucide.createIcons();
+
+        // FAQ 아코디언 토글
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
